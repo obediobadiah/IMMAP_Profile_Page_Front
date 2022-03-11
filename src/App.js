@@ -16,12 +16,12 @@ function App() {
       <BrowserRouter>
         <Navigation />
         <Routes>
-          <Route path="/" element={<AddProfile />} exacts />
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/" element={<AddProfile />} exact />
+          {/* <Route path="/Profile" element={<Profile />} /> */}
         </Routes>
-      </BrowserRouter>,
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;
