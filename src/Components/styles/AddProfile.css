@@ -1,7 +1,155 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Barlow:ital,wght@1,600;1,900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.container{
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
 :root {
     --primary-color: #be2126;
     --primary-color_gray: #6d6e71;
     --seconday-color: #193661;
+  }
+
+  .identity{
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    margin: 20px 200px 20px 200px;
+    padding: 50px;
+    background-color: rgb(231, 231, 231);
+  }
+.profile_picture{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #6d6e71;
+}
+  .profile_img{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+  }
+
+  .select_age{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Barlow Condensed', sans-serif;
+    border-bottom: 1px solid #6d6e71;
+  }
+  .profile_age:focus{
+    border: 1px solid var(--primary-color);
+  }
+
+  .experience{
+    background-color: rgb(231, 231, 231);
+    border: 1px solid rgb(235, 235, 235);
+    border-radius: 10px;
+    padding: 50px;
+  }
+
+  .work_experience h1{
+    padding: 0px;
+    font-size: 2rem;
+    color: var(--primary-color_gray);
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .work_experience{
+    padding: 20px;
+  }
+
+  .job_title:focus{
+    border: 1px solid var(--primary-color);
+  }
+
+  .job_checkbox{
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+.experience_dates{
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+  .exp_date{
+    display: flex;
+  }
+
+  .exp_date select{
+    margin: 5px;
+  }
+
+  .profile_date_month:focus{
+       border: 1px solid var(--primary-color);
+       width: 100%;       
+  }
+
+  .profile_date_year:focus{
+    margin-left: 5px;
+       border: 1px solid var(--primary-color); 
+       width: 100%;
+       height: auto;
+  }
+
+  
+  .company_detail{
+    display: flex;
+    margin-top: 10px;
+  }
+
+  
+  .job_descript{
+    margin-top: 10px;
+  }
+  
+  .job_descript .add_exp{
+    position: right;
+    border: none;
+    padding: 7px 20px 7px 20px;
+    background-color: var(--primary-color);
+  }
+  
+  .company_name:focus{
+       border: 1px solid var(--primary-color);     
+  }
+
+  .company_logo{
+    margin-left: 5px;    
+  }
+
+  .company_logo:focus{
+    margin-left: 5px;
+       border: 1px solid var(--primary-color);     
+  }
+
+  .job_description:focus{
+       border: 1px solid var(--primary-color);  
+  }
+
+  .save_button{
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    position: right;
+    border: none;
+    padding: 7px 20px 7px 20px;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+
+  @media screen and (max-width: 992px) {
+    .identity{
+      border: 1px solid rgb(235, 235, 235);
+      border-radius: 10px;
+      margin: 20px 20px 20px 20px;
+      padding: 50px;
+      background-color: rgb(231, 231, 231);
+    }
   }
