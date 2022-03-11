@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,600;1,900&display=swap');
+
+:root {
+    --primary-color: #be2126;
+    --primary-color_gray: #6d6e71;
+    --seconday-color: #193661;
+}
+
+.NavigationBar{
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    border: 1px var(--primary-color_gray);
+    padding: 20px; 
+}
+
+.NavigationBar .nav-logo .logo{
+   width: 200px;
+   height: auto;
+}
+
+.NavigationBar .nav-links .nav_link{
+    display: flex;
+    /* justify-content: space-around; */
+    color:var(--primary-color_gray);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Barlow', sans-serif;
+    padding-left: 20px;
+    /* padding-left: 20px; */
+}
