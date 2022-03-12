@@ -14,10 +14,11 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-        <Navigation />
+          <Navigation />
+
         <Routes>
-          <Route path="/" element={<AddProfile />} exact />
-          <Route path="/Profile" element={<Profile />} />
+            <Route path="/" element={<AddProfile />} exact />
+            <Route path="/Profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

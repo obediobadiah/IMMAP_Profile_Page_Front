@@ -26,19 +26,20 @@ class AddProfile extends Component {
         }
         this.state = { checked: false };
         this.handleChange = this.handleChange.bind(this);
-    }
+        this.uploadSingleFile = this.uploadSingleFile.bind(this)
+    };
 
     handleChange() {
         this.setState({
             checked: !this.state.checked
         })
-    }
+    };
 
     uploadSingleFile(e) {
         this.setState({
             file: URL.createObjectURL(e.target.files[0])
         })
-    }
+    };
 
     render() {
 

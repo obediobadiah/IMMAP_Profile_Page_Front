@@ -11,6 +11,7 @@
   }
 
   .identity{
+
     border: 1px solid rgb(235, 235, 235);
     border-radius: 10px;
     margin: 20px 200px 20px 200px;
@@ -99,17 +100,6 @@
   .exp_date select{
     margin: 5px;
   }
-
-
-  /* .profile_date_month{
-       width: 100%;
-       height: auto;     
-  }
-
-  .profile_date_year{
-    width: 100%;
-       height: auto; 
-  } */
 
   .profile_date_month:focus{
        border: 1px solid var(--primary-color);

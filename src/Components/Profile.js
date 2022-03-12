@@ -14,7 +14,7 @@ class Profile extends Component{
 
 
                 <div className='row'>
-                    <div className='col-md-3 profile_identity'>
+                    <div className='col-md-3 col-mx-12 profile_identity'>
                         <div className='profile_ident'>
                             <div className='ident_image'>
                                 <img alt='' className="profile_picture_img" />
@@ -32,7 +32,7 @@ class Profile extends Component{
 
                     </div>
 
-                    <div className='col-md-9 profile_experience'>
+                    <div className='col-md-9 col-mx-12 profile_experience'>
                         <div className='profile_experience_details'>
                             <div className='exp_head'>
                                 <div className='exp_title'><h2>Employement Experience</h2></div>
