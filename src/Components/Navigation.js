@@ -14,7 +14,7 @@ function Navigation() {
                     <img src={immap_logo} className='logo' alt="IMMAP logo"/>
                 </div>
                 <div className='nav-links'>
-                    <Link to="" className='nav_link'>Add Profile</Link>
+                    <Link to="/" className='nav_link'>Add Profile</Link>
                     <Link to="/Profile" className='nav_link'>View Profile</Link>
                 </div>
                 <div className='immap-links'>

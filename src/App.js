@@ -17,7 +17,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<AddProfile />} exact />
-          {/* <Route path="/Profile" element={<Profile />} /> */}
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

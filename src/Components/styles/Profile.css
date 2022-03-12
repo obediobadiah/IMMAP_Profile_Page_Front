@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Barlow:ital,wght@1,600;1,900&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container{
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+:root {
+    --primary-color: #be2126;
+    --primary-color_gray: #6d6e71;
+    --seconday-color: #193661;
+  }
+
+  /* Style the submit button */
+form.search button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 17px;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+
+  .profile_identity{
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(231, 231, 231);
+  }
+
+  .modify_icon{
+      width: 50px;
+      height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+    color: var(--primary-color);
+  }
+
+  .modify_icon:hover{
+    cursor: pointer;
+    color: white;
+    background-color: var(--primary-color);
+  }
+
+.profile_ident .ident_image .profile_picture_img{
+    background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
+    background-repeat: no-repeat;
+  
+    background-size: cover;
+        width: 200px;
+      height: 200px;
+      -webkit-border-radius: 60px;
+      -webkit-background-clip: padding-box;
+      -moz-border-radius: 60px;
+      -moz-background-clip: padding;
+      border-radius: 100px;
+      background-clip: padding-box;
+      margin: 7px 0 0 5px;
+  }
+
+  .profile_details{
+      display: block;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .profile_details h1{
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      padding: 10px;
+  }
+  .profile_details p{
+      font-size: 1rem;
+      color: var(--seconday-color);
+  }
+
+  .profile_experience{
+    padding: 20px;
+    border-radius: 5px;
+    /* margin-left: 2px; */
+  }
+
+  .exp_head .exp_title h2{
+      font-size: 1.5rem;
+      color: var(--primary-color);
+  }
+
+  .exp_head{
+      display: flex;
+      border-bottom: 1px solid var(--primary-color);
+      justify-content: space-between;
+  }
