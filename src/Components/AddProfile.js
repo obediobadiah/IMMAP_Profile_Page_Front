@@ -6,9 +6,11 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import save from '@mui/icons-material/Save';
+import AddCircle from '@mui/icons-material/AddCircle';
+import SaveIcon from '@mui/icons-material/Save';
 
 import { Link } from 'react-router-dom'
+
 
 
 
@@ -223,11 +225,11 @@ class AddProfile extends Component {
                             </div>
                             <div className='job_descript'>
                                 <textarea type="text" class="job_description form-control " placeholder="Job description" rows="5" required />
-                                <button class="add_exp">Add Experiences</button>
+                                <button class="add_exp"><AddCircle/>   Add Experiences</button>
                             </div>
 
                             <div className='submit_button'>
-                                <button class="save_button" type="submit"><save />SAVE</button>
+                                <button class="save_button" type="submit"><SaveIcon />   SAVE</button>
                             </div>
                         </div>
                     </form>
