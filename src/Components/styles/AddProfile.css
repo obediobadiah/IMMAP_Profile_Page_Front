@@ -21,12 +21,30 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  background-color: #6d6e71;
+}
+.profile_picture .profile_picture_img{
+  background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
+  background-repeat: no-repeat;
+
+  background-size: cover;
+      width: 200px;
+    height: 200px;
+    -webkit-border-radius: 60px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 60px;
+    -moz-background-clip: padding;
+    border-radius: 100px;
+    background-clip: padding-box;
+    margin: 7px 0 0 5px;
 }
   .profile_img{
     width: 50%;
     height: 50%;
     border-radius: 50%;
+  }
+
+  .profile_name{
+    margin-top: 10px;
   }
 
   .select_age{
@@ -71,9 +89,8 @@
 .experience_dates{
   display: flex;
   width: 100%;
+  justify-content: space-between;
   height: auto;
-  justify-content: center;
-  align-items: center;
 }
   .exp_date{
     display: flex;
@@ -82,6 +99,17 @@
   .exp_date select{
     margin: 5px;
   }
+
+
+  /* .profile_date_month{
+       width: 100%;
+       height: auto;     
+  }
+
+  .profile_date_year{
+    width: 100%;
+       height: auto; 
+  } */
 
   .profile_date_month:focus{
        border: 1px solid var(--primary-color);
@@ -107,8 +135,12 @@
   }
   
   .job_descript .add_exp{
-    position: right;
+    margin-top: 10px;
     border: none;
+    float: right;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
     padding: 7px 20px 7px 20px;
     background-color: var(--primary-color);
   }
@@ -151,5 +183,66 @@
       margin: 20px 20px 20px 20px;
       padding: 50px;
       background-color: rgb(231, 231, 231);
+    }
+
+  }
+
+  @media screen and (max-width: 800px) {
+    .experience_dates{
+      /* display: block; */
+      width: 100%;
+      height: auto;
+    }
+    .profile_date_year{
+      width: 100%;
+      height: auto;
+    }
+    .company_detail{
+      display: block;
+      margin-top: 10px;
+    }
+
+    
+  .company_logo{
+    margin-left: 0;    
+    margin-top: 10px;    
+  }
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .experience_dates{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .profile_date_year{
+      width: 100%;
+      height: auto;
+    }
+    .company_detail{
+      display: block;
+      margin-top: 10px;
+    }
+
+    
+  .company_logo{
+    margin-left: 0;    
+    margin-top: 10px;    
+  }
+  }
+
+
+  @media screen and (max-width: 450px) {
+    .identity{
+      border: 1px solid rgb(235, 235, 235);
+      border-radius: 10px;
+      margin: 20px 20px 20px 20px;
+      padding: 20px;
+      background-color: rgb(231, 231, 231);
+    }
+
+    .experience{
+      padding: 20px;
     }
   }
