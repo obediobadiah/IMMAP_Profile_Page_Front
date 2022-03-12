@@ -26,7 +26,6 @@ class AddProfile extends Component {
         }
         this.state = { checked: false };
         this.handleChange = this.handleChange.bind(this);
-        this.uploadSingleFile = this.uploadSingleFile.bind(this)
     }
 
     handleChange() {
