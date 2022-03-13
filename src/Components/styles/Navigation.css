@@ -15,6 +15,7 @@
     width: 100%;
     height: auto;
     padding: 20px;
+    background-color: white;
     align-items: left;
     border: 1px var(--primary-color_gray);
     padding: 20px; 
