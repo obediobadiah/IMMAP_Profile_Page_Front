@@ -21,7 +21,6 @@ class AddProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            file: null,
             name: '',
             age: '',
             job: '',
@@ -55,26 +54,30 @@ class AddProfile extends Component {
         });
     }
 
-    SaveProfil (e){
+    SaveProfil(e) {
         e.preventDefault();
 
+        const data = new FormData();
+        data.append(
+            'image', this.state.image,
+            'companylogo', this.state.companylogo
+            )
+
         const packets = {
-            name:  this.state.name,
+            name: this.state.name,
             age: this.state.age,
             job: this.state.job,
             currentjob: this.state.currentjob,
             startdate: this.state.startdate,
             enddate: this.state.enddate,
             companyname: this.state.companyname,
-            companylogo: this.state.companylogo,
             jobdescript: this.state.jobdescript,
             image: this.state.image
         };
 
-        axios.post('http://127.0.0.1:8000/api/add-profile', packets)
+        axios.post('http://127.0.0.1:8000/api/add-profile', data, packets)
             .then((res) => {
                 this.state = ({
-                    file: null,
                     name: '',
                     age: '',
                     job: '',
@@ -99,15 +102,16 @@ class AddProfile extends Component {
 
     uploadSingleFile(e) {
         this.setState({
-            file: URL.createObjectURL(e.target.files[0])
+            image: URL.createObjectURL(e.target.files[0]),
+            companylogo: URL.createObjectURL(e.target.files[1])
         })
     };
 
     render() {
 
         let imgPreview;
-        if (this.state.file) {
-            imgPreview = <img src={this.state.file} alt='' />;
+        if (this.state.image) {
+            imgPreview = <img src={this.state.image} alt='' />;
         }
 
         const content = !this.state.checked
@@ -124,7 +128,7 @@ class AddProfile extends Component {
                         <div className='identity'>
                             <div className="mb-3 profile_picture">
                                 <div>
-                                    <img src={this.state.file} alt='' className="profile_picture_img" />
+                                    <img src={this.state.image} alt='' className="profile_picture_img" />
                                 </div>
                                 <input type="file" name="image" className="mb-3 form-control" onChange={this.uploadSingleFile} />
                             </div>
@@ -204,7 +208,7 @@ class AddProfile extends Component {
                             </div>
                             <div className='company_detail'>
                                 <input type="text" class=" company_name form-control " placeholder="Company name" name='companyname' value={this.state.email} onChange={this.handleInput} required />
-                                <input type="file" class=" company_logo form-control " placeholder="Company logo" name='companylogo' value={this.state.companylogo} onChange={this.handleInput} required />
+                                <input type="file" class=" company_logo form-control " placeholder="Company logo" name='companylogo' onChange={this.uploadSingleFile} required />
                             </div>
                             <div className='job_descript'>
                                 <textarea type="text" class="job_description form-control " placeholder="Job description" rows="5" name='jobdescript' value={this.state.jobdescript} onChange={this.handleInput} required />
