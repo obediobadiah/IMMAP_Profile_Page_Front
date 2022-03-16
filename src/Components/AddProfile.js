@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import AddCircle from '@mui/icons-material/AddCircle';
 import SaveIcon from '@mui/icons-material/Save';
+import swal from 'sweetalert'
 
 import { Link } from 'react-router-dom'
 
@@ -30,69 +31,64 @@ class AddProfile extends Component {
             companyname: '',
             companylogo: '',
             jobdescript: '',
-            image: '',
         }
         this.state = { checked: false };
         this.handleChange = this.handleChange.bind(this);
         this.uploadSingleFile = this.uploadSingleFile.bind(this);
-        this.handleInput = this.handleInput.bind(this);
+        this.uploadSingleFileComapny = this.uploadSingleFileComapny.bind(this);
+        this.handleInputName = this.handleInputName.bind(this);
+        this.handleInputAge = this.handleInputAge.bind(this);
+        this.handleInputJob = this.handleInputJob.bind(this);
+        this.handleInputCurrentjob = this.handleInputCurrentjob.bind(this);
+        this.handleInputStartDate = this.handleInputStartDate.bind(this);
+        this.handleInputEndDate = this.handleInputEndDate.bind(this);
+        this.handleInputCompanyName = this.handleInputCompanyName.bind(this);
+        this.handleInputJobDescript = this.handleInputJobDescript.bind(this);
         this.SaveProfil = this.SaveProfil.bind(this);
+        this.SaveExperience = this.SaveExperience.bind(this);
     };
 
-    handleInput = (e) => {
+    handleInputName = (e) => {
         this.setState({
             name: e.target.value,
+        });
+    }
+    handleInputAge = (e) => {
+        this.setState({
             age: e.target.value,
+        });
+    }
+    handleInputJob = (e) => {
+        this.setState({
             job: e.target.value,
+        });
+    }
+    handleInputCurrentjob = (e) => {
+        this.setState({
             currentjob: e.target.value,
+        });
+    }
+    handleInputStartDate = (e) => {
+        this.setState({
             startdate: e.target.value,
+        });
+    }
+    handleInputEndDate = (e) => {
+        this.setState({
             enddate: e.target.value,
+        });
+    }
+    handleInputCompanyName = (e) => {
+        this.setState({
             companyname: e.target.value,
-            companylogo: e.target.value,
+        });
+    }
+    handleInputJobDescript = (e) => {
+        this.setState({
             jobdescript: e.target.value,
-            image: e.target.value,
         });
     }
 
-    SaveProfil(e) {
-        e.preventDefault();
-
-        const data = new FormData();
-        data.append(
-            'image', this.state.image,
-            'companylogo', this.state.companylogo
-            )
-
-        const packets = {
-            name: this.state.name,
-            age: this.state.age,
-            job: this.state.job,
-            currentjob: this.state.currentjob,
-            startdate: this.state.startdate,
-            enddate: this.state.enddate,
-            companyname: this.state.companyname,
-            jobdescript: this.state.jobdescript,
-            image: this.state.image
-        };
-
-        axios.post('http://127.0.0.1:8000/api/add-profile', data, packets)
-            .then((res) => {
-                this.state = ({
-                    name: '',
-                    age: '',
-                    job: '',
-                    currentjob: '',
-                    startdate: '',
-                    enddate: '',
-                    companyname: '',
-                    companylogo: '',
-                    jobdescript: '',
-                    image: '',
-                })
-                this.props.history.push('/')
-            })
-            .catch(err => console.log(err));
-    }
 
     handleChange() {
         this.setState({
@@ -103,9 +99,58 @@ class AddProfile extends Component {
     uploadSingleFile(e) {
         this.setState({
             image: URL.createObjectURL(e.target.files[0]),
-            companylogo: URL.createObjectURL(e.target.files[1])
         })
     };
+
+    uploadSingleFileComapny(e) {
+        this.setState({
+            companylogo: URL.createObjectURL(e.target.files[0])
+        })
+    };
+
+
+
+    SaveProfil = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: this.state.name,
+            age: this.state.age,
+            image: this.state.image
+        };
+
+
+
+        const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
+        if (res.data.status === 200) {
+            swal('Message', res.data.message)
+        }
+
+    }
+
+
+    SaveExperience = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: this.state.name,
+            job: this.state.job,
+            startdate: this.state.startdate,
+            enddate: this.state.enddate,
+            companyname: this.state.companyname,
+            companylogo: this.state.companylogo,
+            jobdescript: this.state.jobdescript,
+        };
+
+
+
+        const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+        if (res.data.status === 200) {
+            swal('Message', res.data.message)
+        }
+
+    }
+
 
     render() {
 
@@ -117,14 +162,14 @@ class AddProfile extends Component {
         const content = !this.state.checked
             ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
 
-                <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInput} required />
+                <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
             </div>
             : null;
 
         return (
             <div className='container'>
                 <div className='row'>
-                    <form action="" method="get" onSubmit={this.SaveProfil}>
+                    <form action="" method="post" enctype="multipart/form-data">
                         <div className='identity'>
                             <div className="mb-3 profile_picture">
                                 <div>
@@ -134,9 +179,9 @@ class AddProfile extends Component {
                             </div>
                             <div class="mb-3">
 
-                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInput} required />
+                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInputName} required />
                             </div>
-                            <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInput}>
+                            <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInputAge}>
                                 <option selected disabled hidden>Select Age</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -184,16 +229,20 @@ class AddProfile extends Component {
                                 <option value="44">45</option>
                             </select>
 
+                            <div className='submit_button'>
+                                <button className="save_button" type="submit" onClick={this.SaveProfil}><SaveIcon />SAVE IDENTITY</button>
+                            </div>
+
                         </div>
 
                         <div className='experience'>
                             <div className="work_experience">
                                 <h1>Work Experiences</h1>
                             </div>
-                            <input type="text" class="job_title form-control" placeholder="Job Title" name='job' value={this.state.job} onChange={this.handleInput} required />
+                            <input type="text" class="job_title form-control" placeholder="Job Title" name='job' value={this.state.job} onChange={this.handleInputJob} required />
                             <div class="job_checkbox form-check">
-                                <input class="job_check form-check-input" type="checkbox" id="flexCheckDefault" checked={this.state.checked} onChange={this.handleChange} />
-                                <label class="checkbox form-check-label" for="flexCheckDefault" name='currentjob' value={this.state.currentjob} onChange={this.handleInput}>
+                                <input class="job_check form-check-input" type="checkbox" id="flexCheckDefault" checked={ this.state.checked } onChange={ this.handleChange }/>
+                                <label class="checkbox form-check-label" for="flexCheckDefault" name='currentjob' value={this.state.currentjob} onChange={this.handleInputEndDate}>
                                     Current Position
                                 </label>
                             </div>
@@ -201,22 +250,22 @@ class AddProfile extends Component {
                             <div className='experience_dates'>
                                 <div className='col-md-6 col-sm-12 exp_date' id='start_dates'>
 
-                                    <input type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInput} required />
+                                    <input type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInputStartDate} required />
 
                                 </div>
                                 {content}
                             </div>
                             <div className='company_detail'>
-                                <input type="text" class=" company_name form-control " placeholder="Company name" name='companyname' value={this.state.email} onChange={this.handleInput} required />
-                                <input type="file" class=" company_logo form-control " placeholder="Company logo" name='companylogo' onChange={this.uploadSingleFile} required />
+                                <input type="text" className=" company_name form-control " placeholder="Company name" name='companyname' value={this.state.companyname} onChange={this.handleInputCompanyName} required />
+                                <input type="file" className=" company_logo form-control " placeholder="Company logo" name='companylogo' onChange={this.uploadSingleFileComapny} required />
                             </div>
                             <div className='job_descript'>
-                                <textarea type="text" class="job_description form-control " placeholder="Job description" rows="5" name='jobdescript' value={this.state.jobdescript} onChange={this.handleInput} required />
-                                <button class="add_exp"><AddCircle />   Add Experiences</button>
+                                <textarea type="text" className="job_description form-control " placeholder="Job description" rows="5" name='jobdescript' value={this.state.jobdescript} onChange={this.handleInputJobDescript} required />
+                                <button className="add_exp"><AddCircle /></button>
                             </div>
 
                             <div className='submit_button'>
-                                <button class="save_button" type="submit" onClick={this.SaveProfil}><SaveIcon />   SAVE</button>
+                                <button className="save_button" type="submit" onClick={this.SaveExperience}><SaveIcon />SAVE EXPERIENCE</button>
                             </div>
                         </div>
                     </form>
