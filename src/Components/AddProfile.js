@@ -45,7 +45,8 @@ class AddProfile extends Component {
         this.handleInputCompanyName = this.handleInputCompanyName.bind(this);
         this.handleInputJobDescript = this.handleInputJobDescript.bind(this);
         this.SaveProfil = this.SaveProfil.bind(this);
-        this.SaveExperience = this.SaveExperience.bind(this);
+        this.SaveExperienceCurrentJob = this.SaveExperienceCurrentJob.bind(this);
+        this.SaveExperienceEnddate = this.SaveExperienceEnddate.bind(this);
     };
 
     handleInputName = (e) => {
@@ -78,6 +79,7 @@ class AddProfile extends Component {
             enddate: e.target.value,
         });
     }
+
     handleInputCompanyName = (e) => {
         this.setState({
             companyname: e.target.value,
@@ -92,9 +94,10 @@ class AddProfile extends Component {
 
     handleChange() {
         this.setState({
-            checked: !this.state.checked
+            checked: !this.state.checked,
         })
     };
+
 
     uploadSingleFile(e) {
         this.setState({
@@ -129,20 +132,18 @@ class AddProfile extends Component {
     }
 
 
-    SaveExperience = async (e) => {
+    SaveExperienceCurrentJob = async (e) => {
         e.preventDefault();
 
         const data = {
             name: this.state.name,
             job: this.state.job,
             startdate: this.state.startdate,
-            enddate: this.state.enddate,
+            enddate: this.state.currentjob,
             companyname: this.state.companyname,
             companylogo: this.state.companylogo,
             jobdescript: this.state.jobdescript,
         };
-
-
 
         const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
         if (res.data.status === 200) {
@@ -150,6 +151,45 @@ class AddProfile extends Component {
         }
 
     }
+
+    SaveExperienceEnddate = async (e) => {
+        e.preventDefault();
+
+        if(this.state.checked){
+            const data = {
+                name: this.state.name,
+                job: this.state.job,
+                startdate: this.state.startdate,
+                enddate: "Current Position",
+                companyname: this.state.companyname,
+                companylogo: this.state.companylogo,
+                jobdescript: this.state.jobdescript,
+            };
+
+            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+            if (res.data.status === 200) {
+                swal('Message', res.data.message)
+            }
+        }
+        else{
+            const data = {
+                name: this.state.name,
+                job: this.state.job,
+                startdate: this.state.startdate,
+                enddate: this.state.enddate,
+                companyname: this.state.companyname,
+                companylogo: this.state.companylogo,
+                jobdescript: this.state.jobdescript,
+            };
+
+            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+            if (res.data.status === 200) {
+                swal('Message', res.data.message)
+            }
+        }
+
+    }
+
 
 
     render() {
@@ -169,7 +209,7 @@ class AddProfile extends Component {
         return (
             <div className='container'>
                 <div className='row'>
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data" checkCheckBox={this.handleChangeCheckbox}>
                         <div className='identity'>
                             <div className="mb-3 profile_picture">
                                 <div>
@@ -241,7 +281,7 @@ class AddProfile extends Component {
                             </div>
                             <input type="text" class="job_title form-control" placeholder="Job Title" name='job' value={this.state.job} onChange={this.handleInputJob} required />
                             <div class="job_checkbox form-check">
-                                <input class="job_check form-check-input" type="checkbox" id="flexCheckDefault" checked={ this.state.checked } onChange={ this.handleChange }/>
+                                <input class="job_check form-check-input" type="checkbox" id="flexCheckDefault" checked={this.state.checked} onChange={this.handleChange} />
                                 <label class="checkbox form-check-label" for="flexCheckDefault" name='currentjob' value={this.state.currentjob} onChange={this.handleInputEndDate}>
                                     Current Position
                                 </label>
@@ -265,7 +305,13 @@ class AddProfile extends Component {
                             </div>
 
                             <div className='submit_button'>
-                                <button className="save_button" type="submit" onClick={this.SaveExperience}><SaveIcon />SAVE EXPERIENCE</button>
+                                <button
+                                    className="save_button"
+                                    type="submit"
+                                    onClick={this.SaveExperienceEnddate}>
+                                    <SaveIcon />
+                                    SAVE EXPERIENCE
+                                </button>
                             </div>
                         </div>
                     </form>

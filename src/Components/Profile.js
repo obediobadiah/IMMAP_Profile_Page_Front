@@ -2,13 +2,42 @@ import react, { Component, useState } from 'react'
 import * as React from 'react'
 import './styles/Profile.css'
 import CreateIcon from '@mui/icons-material/Create';
+import axios from 'axios'
 
 
 
 
-class Profile extends Component{
+class Profile extends Component {
+    state = {
+        identities: []
+    }
 
-    render(){
+    async componentDidMount() {
+        const res = await axios.get('http://127.0.0.1:8000/api/profile-identity')
+            .then(res => {
+                this.setState({ identities: res.data });
+            })
+    }
+
+
+
+    render() {
+
+        var profile_data =
+            this.state.identities.findIndex((identity) => {
+                return (
+                    <div key={identity.id}>
+                        <div className='ident_image'>
+                            <img src={identity.image} alt='' className="profile_picture_img" />
+                        </div>
+                        <div className='profile_details'>
+                            <h1>{identity.name}</h1>
+                            <p>{identity.age} Years Old</p>
+                        </div>
+                    </div>
+                );
+            });
+
         return (
             <div className='container'>
 
@@ -16,13 +45,7 @@ class Profile extends Component{
                 <div className='row'>
                     <div className='col-md-3 col-mx-12 profile_identity'>
                         <div className='profile_ident'>
-                            <div className='ident_image'>
-                                <img alt='' className="profile_picture_img" />
-                            </div>
-                            <div className='profile_details'>
-                                <h1>Obedi Obadiah Mwendapeke</h1>
-                                <p>85 Years Old</p>
-                            </div>
+                            {profile_data}
                         </div>
                         <div className='edit_button'>
                             <div className='button_box'>
