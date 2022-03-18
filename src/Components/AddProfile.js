@@ -301,7 +301,6 @@ class AddProfile extends Component {
                             </div>
                             <div className='job_descript'>
                                 <textarea type="text" className="job_description form-control " placeholder="Job description" rows="5" name='jobdescript' value={this.state.jobdescript} onChange={this.handleInputJobDescript} required />
-                                <button className="add_exp"><AddCircle /></button>
                             </div>
 
                             <div className='submit_button'>

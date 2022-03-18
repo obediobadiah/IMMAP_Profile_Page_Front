@@ -70,3 +70,14 @@
     border-radius: 20px;
     color: white;
 }
+
+ @media screen and (max-width: 992px) {
+    .NavigationBar{
+        display: grid;
+        justify-content: space-around;
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+        background-color: white;
+    }
+}
