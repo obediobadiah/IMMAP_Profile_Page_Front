@@ -26,6 +26,7 @@
 .profile_picture .profile_picture_img{
   background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
   background-repeat: no-repeat;
+  object-fit: cover;
 
   background-size: cover;
       width: 200px;
