@@ -126,9 +126,9 @@ class AddProfile extends Component {
         if (res.data.status === 200) {
             swal('Message', res.data.message)
         }
-
     }
 
+    
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
 
@@ -199,7 +199,6 @@ class AddProfile extends Component {
                             <div class="mb-3">
 
                                 <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInputName} required />
-                                <span className="text-danger">{this.state.nameError}</span>
                             </div>
                             <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInputAge}>
                                 <option selected disabled hidden>Select Age</option>
