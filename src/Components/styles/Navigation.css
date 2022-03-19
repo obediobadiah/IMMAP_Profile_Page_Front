@@ -92,14 +92,3 @@
         margin-top: 40px;
     }
 }
-
-  
-.NavigationBar .nav-links .nav_link{
-    display: flex;
-    /* justify-content: space-around; */
-    color:var(--primary-color_gray);
-    text-decoration: none;
-    font-weight: bold;
-    font-family: 'Barlow', sans-serif;
-    padding-left: 20px;
-    /* padding-left: 20px; */
