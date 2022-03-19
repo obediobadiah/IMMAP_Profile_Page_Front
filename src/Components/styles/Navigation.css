@@ -71,7 +71,7 @@
     font-weight: bold;
     border-radius: 20px;
     color: white;
-
+}
 
  @media screen and (max-width: 768px) {
     .NavigationBar{
