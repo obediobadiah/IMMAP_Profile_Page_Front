@@ -113,7 +113,6 @@ class AddProfile extends Component {
     };
 
 
-
     SaveProfil = async (e) => {
         e.preventDefault();
 
@@ -123,19 +122,17 @@ class AddProfile extends Component {
             image: this.state.image
         };
 
-
-
         const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
         if (res.data.status === 200) {
             swal('Message', res.data.message)
         }
-
     }
 
+    
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
 
-        if(this.state.checked){
+        if (this.state.checked) {
             const data = {
                 name: this.state.name,
                 job: this.state.job,
@@ -151,7 +148,7 @@ class AddProfile extends Component {
                 swal('Message', res.data.message)
             }
         }
-        else{
+        else {
             const data = {
                 name: this.state.name,
                 job: this.state.job,
@@ -169,6 +166,7 @@ class AddProfile extends Component {
         }
 
     }
+
 
 
 
@@ -196,12 +194,11 @@ class AddProfile extends Component {
                                     <img src={this.state.image} alt='' className="profile_picture_img" />
                                 </div>
                                 <input type="file" name="image" className="mb-3 form-control" onChange={this.uploadSingleFile} />
-                                
+
                             </div>
                             <div class="mb-3">
 
-                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.setName} required />
-                                {this.validator.message('name', this.state.name, 'required|alpha')}
+                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInputName} required />
                             </div>
                             <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInputAge}>
                                 <option selected disabled hidden>Select Age</option>

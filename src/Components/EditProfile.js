@@ -117,17 +117,28 @@ class EditProfile extends Component {
 
         const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
         if (res.data.status === 200) {
-            swal('Message', "Profile edited successfully")
+            swal({
+                title: "Message",
+                text: "Profile edited successfully",
+                icon: "success",
+            });
+        }
+        else {
+            swal({
+                title: "Message",
+                text: "Please make sure you complete all the fields",
+                icon: "warning",
+            });
         }
 
     }
 
 
-    
+
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
 
-        if(this.state.checked){
+        if (this.state.checked) {
             const data = {
                 name: this.state.name,
                 job: this.state.job,
@@ -140,10 +151,22 @@ class EditProfile extends Component {
 
             const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
             if (res.data.status === 200) {
-                swal('Message', "Experience edited successfully")
+                
+                swal({
+                    title: "Message",
+                    text: "Experience edited successfully",
+                    icon: "success",
+                });
+            }
+            else {
+                swal({
+                    title: "Message",
+                    text: "Please make sure you complete all the fields",
+                    icon: "warning",
+                });
             }
         }
-        else{
+        else {
             const data = {
                 name: this.state.name,
                 job: this.state.job,
@@ -156,7 +179,19 @@ class EditProfile extends Component {
 
             const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
             if (res.data.status === 200) {
-                swal('Message', "Experience edited successfully")
+                
+                swal({
+                    title: "Message",
+                    text: "Experience edited successfully",
+                    icon: "success",
+                });
+            }
+            else if(res.data.status === 422) {
+                swal({
+                    title: "Message",
+                    text: "Please make sure you complete all the fields",
+                    icon: "warning",
+                });
             }
         }
 
@@ -168,11 +203,11 @@ class EditProfile extends Component {
     render() {
 
         const content = !this.state.checked
-        ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
+            ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
 
-            <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
-        </div>
-        : null;
+                <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
+            </div>
+            : null;
 
         return (
             <div className='container'>
