@@ -73,15 +73,25 @@
     color: white;
 
 
- @media screen and (max-width: 992px) {
+ @media screen and (max-width: 768px) {
     .NavigationBar{
-        display: grid;
-        justify-content: space-around;
+        display: block;
+        /* justify-content: space-around; */
         width: 100%;
         height: auto;
-        padding-top: 20px;
+        border-bottom: 1px solid #6d6e71;
         background-color: white;
     }
+
+    .NavigationBar .nav-links{
+        margin-top: 20px;
+    }
+
+    .immap-links{
+        width: 100%;
+        margin-top: 40px;
+    }
+}
 
   
 .NavigationBar .nav-links .nav_link{

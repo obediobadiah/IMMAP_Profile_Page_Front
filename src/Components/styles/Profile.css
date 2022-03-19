@@ -2,6 +2,8 @@
 
 .container{
   font-family: 'Barlow Condensed', sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 :root {
@@ -15,7 +17,7 @@
   }
 
   .profile_identity .profile_ident{
-    padding: 20px;
+    padding: 50px 0 0 0;
     border-radius: 5px;
     background-color: rgb(231, 231, 231);
   }
@@ -32,6 +34,10 @@
     cursor: pointer;
     color: white;
     background-color: var(--primary-color);
+  }
+
+.profile_ident .ident_image{
+    padding: 10px;
   }
 
 .profile_ident .ident_image .profile_picture_img{
@@ -66,14 +72,23 @@
       color: var(--seconday-color);
   }
 
+  .edit_button{
+      margin-top: 3rem;
+  }
   .edit_button .update_button{
       background-color: var(--primary-color);
+      /* border-radius: 10px; */
       color: white;
-      border: none;
       width: 100%;
       height: auto;
+      border: none;
       font-weight: bold;
-      padding: 10px;
+      text-decoration: none;
+      padding: 10px 50px 10px 50px;
+  }
+  .edit_button .update_button .button_link{
+      color: white;
+      text-decoration: none;
   }
   .profile_experience_details{
     padding: 20px;
@@ -130,6 +145,22 @@
       font-size: 1rem;
       font-style: italic;
   }
+
+  /* .exp_content .companylogo_img{
+    background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
+    background-repeat: no-repeat;
+  
+    background-size: cover;
+        width: 50px;
+      height: 50px;
+      -webkit-border-radius: 60px;
+      -webkit-background-clip: padding-box;
+      -moz-border-radius: 60px;
+      -moz-background-clip: padding;
+      border-radius: 100px;
+      background-clip: padding-box;
+      margin: 7px 0 0 5px;
+  } */
 
 
 
@@ -191,6 +222,10 @@
   }
   .profile_age_edit:focus{
     border: 1px solid var(--primary-color);
+  }
+
+  .Edit_title h1{
+    color: var(--primary-color);
   }
 
 

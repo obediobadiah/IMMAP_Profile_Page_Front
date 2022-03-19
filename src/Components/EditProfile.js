@@ -1,24 +1,16 @@
 import react, { Component, useState } from 'react'
-import axios from 'axios'
 import * as React from 'react'
-import './styles/AddProfile.css'
-import InputLabel from '@mui/material/InputLabel';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import AddCircle from '@mui/icons-material/AddCircle';
+import './styles/Profile.css'
+import axios from 'axios'
+import 'bootstrap/dist/css/bootstrap.css';
 import SaveIcon from '@mui/icons-material/Save';
 import swal from 'sweetalert'
-import SimpleReactValidator from 'simple-react-validator';
-
-import { Link } from 'react-router-dom'
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
 
-class AddProfile extends Component {
-
+class EditProfile extends Component {
 
     constructor(props) {
         super(props)
@@ -34,12 +26,11 @@ class AddProfile extends Component {
             jobdescript: '',
         }
         this.state = { checked: false };
-        this.validator = new SimpleReactValidator();
         this.handleChange = this.handleChange.bind(this);
         this.uploadSingleFile = this.uploadSingleFile.bind(this);
         this.uploadSingleFileComapny = this.uploadSingleFileComapny.bind(this);
         this.handleInputName = this.handleInputName.bind(this);
-        // this.handleInputAge = this.handleInputAge.bind(this);
+        this.handleInputAge = this.handleInputAge.bind(this);
         this.handleInputJob = this.handleInputJob.bind(this);
         this.handleInputCurrentjob = this.handleInputCurrentjob.bind(this);
         this.handleInputStartDate = this.handleInputStartDate.bind(this);
@@ -124,14 +115,15 @@ class AddProfile extends Component {
         };
 
 
-
         const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
         if (res.data.status === 200) {
-            swal('Message', res.data.message)
+            swal('Message', "Profile edited successfully")
         }
 
     }
 
+
+    
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
 
@@ -148,7 +140,7 @@ class AddProfile extends Component {
 
             const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
             if (res.data.status === 200) {
-                swal('Message', res.data.message)
+                swal('Message', "Experience edited successfully")
             }
         }
         else{
@@ -164,7 +156,7 @@ class AddProfile extends Component {
 
             const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
             if (res.data.status === 200) {
-                swal('Message', res.data.message)
+                swal('Message', "Experience edited successfully")
             }
         }
 
@@ -172,23 +164,22 @@ class AddProfile extends Component {
 
 
 
+
     render() {
 
-        let imgPreview;
-        if (this.state.image) {
-            imgPreview = <img src={this.state.image} alt='' />;
-        }
-
         const content = !this.state.checked
-            ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
+        ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
 
-                <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
-            </div>
-            : null;
+            <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
+        </div>
+        : null;
 
         return (
             <div className='container'>
                 <div className='row'>
+                    <div className='Edit_title'>
+                        <h1>PROFILE INFORMATIONS EDITOR</h1>
+                    </div>
                     <form action="" method="post" enctype="multipart/form-data" checkCheckBox={this.handleChangeCheckbox}>
                         <div className='identity'>
                             <div className="mb-3 profile_picture">
@@ -196,12 +187,10 @@ class AddProfile extends Component {
                                     <img src={this.state.image} alt='' className="profile_picture_img" />
                                 </div>
                                 <input type="file" name="image" className="mb-3 form-control" onChange={this.uploadSingleFile} />
-                                
                             </div>
                             <div class="mb-3">
 
-                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.setName} required />
-                                {this.validator.message('name', this.state.name, 'required|alpha')}
+                                <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInputName} required />
                             </div>
                             <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInputAge}>
                                 <option selected disabled hidden>Select Age</option>
@@ -252,7 +241,7 @@ class AddProfile extends Component {
                             </select>
 
                             <div className='submit_button'>
-                                <button className="save_button" type="submit" onClick={this.SaveProfil}><SaveIcon />SAVE IDENTITY</button>
+                                <button className="save_button" type="submit" onClick={this.SaveProfil}><EditIcon />EDIT IDENTITY</button>
                             </div>
 
                         </div>
@@ -290,16 +279,16 @@ class AddProfile extends Component {
                                     className="save_button"
                                     type="submit"
                                     onClick={this.SaveExperienceEnddate}>
-                                    <SaveIcon />
-                                    SAVE EXPERIENCE
+                                    <EditIcon />
+                                    EDIT EXPERIENCE
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default AddProfile
+export default EditProfile

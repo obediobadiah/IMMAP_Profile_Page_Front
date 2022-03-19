@@ -8,6 +8,7 @@ import {
 import Profile from './Components/Profile'
 import AddProfile from './Components/AddProfile'
 import Navigation from './Components/Navigation'
+import EditProfile from './Components/EditProfile'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
             <Route path="/" element={<AddProfile />} exact />
             <Route path="/Profile" element={<Profile />} />
+            <Route path="/EditProfile" element={<EditProfile />} />
         </Routes>
       </BrowserRouter>
     </div>
