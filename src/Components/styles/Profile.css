@@ -86,6 +86,9 @@
       text-decoration: none;
       padding: 10px 50px 10px 50px;
   }
+  .edit_button .update_button:hover{
+      background-color: #791013;
+  }
   .edit_button .update_button .button_link{
       color: white;
       text-decoration: none;
