@@ -73,7 +73,6 @@
     color: white;
 }
 
-
  @media screen and (max-width: 768px) {
     .NavigationBar{
         display: block;
@@ -93,3 +92,4 @@
         margin-top: 40px;
     }
  }
+
