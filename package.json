@@ -5,10 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
-<<<<<<< HEAD
     "@hookform/resolvers": "^2.8.8",
-=======
->>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
     "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.2",
@@ -19,20 +16,13 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.2.1",
     "react-dom": "^17.0.2",
-<<<<<<< HEAD
     "react-hook-form": "^7.28.1",
-=======
->>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "simple-react-validator": "^1.6.1",
     "sweetalert": "^2.1.2",
-<<<<<<< HEAD
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
-=======
-    "web-vitals": "^2.1.4"
->>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
   },
   "scripts": {
     "start": "react-scripts start",

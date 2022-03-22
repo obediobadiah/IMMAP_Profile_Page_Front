@@ -149,19 +149,14 @@
       font-style: italic;
   }
 
-<<<<<<< HEAD
   .company_content{
     display: flex;
     justify-content: space-between;
   }
 
   .exp_content .company_content .companylogo_img{
-=======
-  /* .exp_content .companylogo_img{
->>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
     background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
     background-repeat: no-repeat;
-  
     background-size: cover;
         width: 50px;
       height: 50px;
@@ -172,78 +167,7 @@
       border-radius: 100px;
       background-clip: padding-box;
       margin: 7px 0 0 5px;
-<<<<<<< HEAD
   }
-=======
-  } */
-
-
-
-/*FOR THE MODAL==================================================================================================================================*/
-  
-  
-  .identity_edit{
-
-    border: 1px solid rgb(235, 235, 235);
-    border-radius: 10px;
-    margin: 10px 10px 10px 10px;
-    padding: 50px;
-    background-color: rgb(231, 231, 231);
-  }
-.profile_picture_edit{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
-.profile_picture_edit div{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-.profile_picture_edit .profile_picture_img_edit{
-  background-image: url("../Assets/pngtree-handsome-young-guy-avatar-cartoon-style-png-image_1947775.jpg");
-  background-repeat: no-repeat;
-  object-fit: cover;
-
-  background-size: cover;
-      width: 150px;
-    height: 150px;
-    -webkit-border-radius: 60px;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 60px;
-    -moz-background-clip: padding;
-    border-radius: 100px;
-    background-clip: padding-box;
-    margin: 7px 0 0 5px;
-}
-  .profile_img_edit{
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-  }
-
-  .profile_name_edit{
-    margin-top: 10px;
-  }
-
-  .select_age_edit{
-    width: 100%;
-    height: auto;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Barlow Condensed', sans-serif;
-    border-bottom: 1px solid #6d6e71;
-  }
-  .profile_age_edit:focus{
-    border: 1px solid var(--primary-color);
-  }
-
-  .Edit_title h1{
-    color: var(--primary-color);
-  }
-
->>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
 
 
   @media screen and (max-width: 1199px) {
