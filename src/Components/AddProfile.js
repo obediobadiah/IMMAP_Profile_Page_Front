@@ -14,15 +14,22 @@ import SimpleReactValidator from 'simple-react-validator';
 
 import { Link } from 'react-router-dom'
 
+<<<<<<< HEAD
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+=======
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
 
 
 
 class AddProfile extends Component {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
     constructor(props) {
         super(props)
         this.state = {
@@ -35,7 +42,10 @@ class AddProfile extends Component {
             companyname: '',
             companylogo: '',
             jobdescript: '',
+<<<<<<< HEAD
             errors: {}
+=======
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
         }
         this.state = { checked: false };
         this.validator = new SimpleReactValidator();
@@ -117,6 +127,7 @@ class AddProfile extends Component {
     };
 
 
+<<<<<<< HEAD
 
     SaveProfil = async (e) => {
         e.preventDefault();
@@ -177,6 +188,58 @@ class AddProfile extends Component {
         }
         catch (error) {
             swal('Warning', "Failed to save, Please make sure all fields are completed", error);
+=======
+    SaveProfil = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: this.state.name,
+            age: this.state.age,
+            image: this.state.image
+        };
+
+        const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
+        if (res.data.status === 200) {
+            swal('Message', res.data.message)
+        }
+    }
+
+    
+    SaveExperienceEnddate = async (e) => {
+        e.preventDefault();
+
+        if (this.state.checked) {
+            const data = {
+                name: this.state.name,
+                job: this.state.job,
+                startdate: this.state.startdate,
+                enddate: "Current Position",
+                companyname: this.state.companyname,
+                companylogo: this.state.companylogo,
+                jobdescript: this.state.jobdescript,
+            };
+
+            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+            if (res.data.status === 200) {
+                swal('Message', res.data.message)
+            }
+        }
+        else {
+            const data = {
+                name: this.state.name,
+                job: this.state.job,
+                startdate: this.state.startdate,
+                enddate: this.state.enddate,
+                companyname: this.state.companyname,
+                companylogo: this.state.companylogo,
+                jobdescript: this.state.jobdescript,
+            };
+
+            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+            if (res.data.status === 200) {
+                swal('Message', res.data.message)
+            }
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
         }
 
     }
@@ -191,6 +254,7 @@ class AddProfile extends Component {
             imgPreview = <img src={this.state.image} alt='' />;
         }
 
+<<<<<<< HEAD
 
         const { name, age, errors } = this.state;
 
@@ -199,6 +263,11 @@ class AddProfile extends Component {
         const content = !this.state.checked
             ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
                 <label>End date</label><br />
+=======
+        const content = !this.state.checked
+            ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
+
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
                 <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
             </div>
             : null;
@@ -216,6 +285,10 @@ class AddProfile extends Component {
 
                             </div>
                             <div class="mb-3">
+<<<<<<< HEAD
+=======
+
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
                                 <input type="text" name='name' class="profile_name form-control " value={this.state.name} placeholder="Full Name" onChange={this.handleInputName} required />
                             </div>
                             <select class="profile_age form-select" aria-label="Default select example" name='age' value={this.state.age} onChange={this.handleInputAge}>
@@ -270,7 +343,10 @@ class AddProfile extends Component {
                                 <button className="save_button" type="submit" onClick={this.SaveProfil}><SaveIcon />SAVE IDENTITY</button>
                             </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
                         </div>
 
                         <div className='experience'>
@@ -287,8 +363,14 @@ class AddProfile extends Component {
 
                             <div className='experience_dates'>
                                 <div className='col-md-6 col-sm-12 exp_date' id='start_dates'>
+<<<<<<< HEAD
                                     <label>Start date</label><br />
                                     <input placeholder="Select starting date" type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInputStartDate} required />
+=======
+
+                                    <input type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInputStartDate} required />
+
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
                                 </div>
                                 {content}
                             </div>

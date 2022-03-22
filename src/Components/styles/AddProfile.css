@@ -96,15 +96,24 @@
   justify-content: space-between;
   height: auto;
 }
+<<<<<<< HEAD
+=======
+  .exp_date{
+    display: flex;
+  }
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
 
   .exp_date select{
     margin: 5px;
   }
 
+<<<<<<< HEAD
   .exp_date{
     text-align: left;
   }
 
+=======
+>>>>>>> a2281735466b30dcb2026eaf17a2d144a0680e43
   .profile_date_month:focus{
        border: 1px solid var(--primary-color);
        width: 100%;       
