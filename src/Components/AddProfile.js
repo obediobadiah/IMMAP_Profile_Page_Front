@@ -98,6 +98,7 @@ class AddProfile extends Component {
     };
 
 
+
     uploadSingleFile(e) {
         this.setState({
             image: URL.createObjectURL(e.target.files[0]),
@@ -130,6 +131,7 @@ class AddProfile extends Component {
         }
 
     }
+
 
 
     SaveExperienceEnddate = async (e) => {
@@ -189,6 +191,7 @@ class AddProfile extends Component {
 
         const content = !this.state.checked
             ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
+            <label>End date</label><br />
                 <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
             </div>
             : null;
@@ -278,8 +281,6 @@ class AddProfile extends Component {
                                 <div className='col-md-6 col-sm-12 exp_date' id='start_dates'>
                                     <label>Start date</label><br />
                                     <input placeholder="Select starting date" type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInputStartDate} required />
-
-                                    <input type="date" class="profile_date_month form-control" name='startdate' value={this.state.startdate} onChange={this.handleInputStartDate} required />
 
                                 </div>
                                 {content}

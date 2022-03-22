@@ -67,8 +67,6 @@ class Profile extends Component {
                         <p className='exp_comp'>At {this.state.experiences.companyname}</p>
                         <img src={this.state.experiences.companylogo} alt='' className="companylogo_img" />
                     </div>
-                    <p className='exp_comp'>At {this.state.experiences.companyname}</p>
-                    {/* <img src={this.state.experiences.companylogo} alt='' className="companylogo_img" /> */}
                     <p className='prof_date'>From {this.state.experiences.startdate} To {this.state.experiences.enddate}</p>
                     <p className='prof_decript'>{this.state.experiences.jobdescript}</p>
                 </div>
