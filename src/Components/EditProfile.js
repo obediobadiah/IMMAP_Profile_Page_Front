@@ -107,28 +107,26 @@ class EditProfile extends Component {
 
     SaveProfil = async (e) => {
         e.preventDefault();
+        try {
 
-        const data = {
-            name: this.state.name,
-            age: this.state.age,
-            image: this.state.image
-        };
+            const data = {
+                name: this.state.name,
+                age: this.state.age,
+                image: this.state.image
+            };
 
 
-        const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
-        if (res.data.status === 200) {
-            swal({
-                title: "Message",
-                text: "Profile edited successfully",
-                icon: "success",
-            });
+            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
+            if (res.data.status === 200) {
+                swal({
+                    title: "Message",
+                    text: "Profile edited successfully",
+                    icon: "success",
+                });
+            }
         }
-        else {
-            swal({
-                title: "Message",
-                text: "Please make sure you complete all the fields",
-                icon: "warning",
-            });
+        catch (error) {
+            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
         }
 
     }
@@ -137,62 +135,52 @@ class EditProfile extends Component {
 
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
+        try {
+            if (this.state.checked) {
+                const data = {
+                    name: this.state.name,
+                    job: this.state.job,
+                    startdate: this.state.startdate,
+                    enddate: "Current Position",
+                    companyname: this.state.companyname,
+                    companylogo: this.state.companylogo,
+                    jobdescript: this.state.jobdescript,
+                };
 
-        if (this.state.checked) {
-            const data = {
-                name: this.state.name,
-                job: this.state.job,
-                startdate: this.state.startdate,
-                enddate: "Current Position",
-                companyname: this.state.companyname,
-                companylogo: this.state.companylogo,
-                jobdescript: this.state.jobdescript,
-            };
+                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                if (res.data.status === 200) {
 
-            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
-            if (res.data.status === 200) {
-                
-                swal({
-                    title: "Message",
-                    text: "Experience edited successfully",
-                    icon: "success",
-                });
+                    swal({
+                        title: "Message",
+                        text: "Experience edited successfully",
+                        icon: "success",
+                    });
+                }
             }
             else {
-                swal({
-                    title: "Message",
-                    text: "Please make sure you complete all the fields",
-                    icon: "warning",
-                });
+                const data = {
+                    name: this.state.name,
+                    job: this.state.job,
+                    startdate: this.state.startdate,
+                    enddate: this.state.enddate,
+                    companyname: this.state.companyname,
+                    companylogo: this.state.companylogo,
+                    jobdescript: this.state.jobdescript,
+                };
+
+                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                if (res.data.status === 200) {
+
+                    swal({
+                        title: "Message",
+                        text: "Experience edited successfully",
+                        icon: "success",
+                    });
+                }
             }
         }
-        else {
-            const data = {
-                name: this.state.name,
-                job: this.state.job,
-                startdate: this.state.startdate,
-                enddate: this.state.enddate,
-                companyname: this.state.companyname,
-                companylogo: this.state.companylogo,
-                jobdescript: this.state.jobdescript,
-            };
-
-            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
-            if (res.data.status === 200) {
-                
-                swal({
-                    title: "Message",
-                    text: "Experience edited successfully",
-                    icon: "success",
-                });
-            }
-            else if(res.data.status === 422) {
-                swal({
-                    title: "Message",
-                    text: "Please make sure you complete all the fields",
-                    icon: "warning",
-                });
-            }
+        catch (error) {
+            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
         }
 
     }

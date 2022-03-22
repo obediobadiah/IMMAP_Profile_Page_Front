@@ -53,7 +53,7 @@ class Profile extends Component {
                         <button className="update_button"><Link to="/EditProfile" className='button_link'><CreateIcon /> Update Profile</Link></button>
                     </div>
                 </div>
-                
+
             </div>
         )
     }
@@ -63,8 +63,10 @@ class Profile extends Component {
             <div>
                 <div className='exp_content'>
                     <h1 className='exp_post'>{this.state.experiences.job}</h1>
-                    <p className='exp_comp'>At {this.state.experiences.companyname}</p>
-                    {/* <img src={this.state.experiences.companylogo} alt='' className="companylogo_img" /> */}
+                    <div className='company_content'>
+                        <p className='exp_comp'>At {this.state.experiences.companyname}</p>
+                        <img src={this.state.experiences.companylogo} alt='' className="companylogo_img" />
+                    </div>
                     <p className='prof_date'>From {this.state.experiences.startdate} To {this.state.experiences.enddate}</p>
                     <p className='prof_decript'>{this.state.experiences.jobdescript}</p>
                 </div>
@@ -74,7 +76,7 @@ class Profile extends Component {
     }
 
 
-    
+
 
 
 

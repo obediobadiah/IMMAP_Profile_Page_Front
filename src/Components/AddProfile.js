@@ -126,52 +126,57 @@ class AddProfile extends Component {
                 age: this.state.age,
                 image: this.state.image
             };
-    
+
             const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
             if (res.data.status === 200) {
                 swal('Message', res.data.message)
             }
         } catch (error) {
-            swal('Warning',"Failed to save, Please make sure all fields are completed");
+            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
         }
-        
+
     }
 
 
     SaveExperienceEnddate = async (e) => {
         e.preventDefault();
 
-        if (this.state.checked) {
-            const data = {
-                name: this.state.name,
-                job: this.state.job,
-                startdate: this.state.startdate,
-                enddate: "Current Position",
-                companyname: this.state.companyname,
-                companylogo: this.state.companylogo,
-                jobdescript: this.state.jobdescript,
-            };
+        try {
+            if (this.state.checked) {
+                const data = {
+                    name: this.state.name,
+                    job: this.state.job,
+                    startdate: this.state.startdate,
+                    enddate: "Current Position",
+                    companyname: this.state.companyname,
+                    companylogo: this.state.companylogo,
+                    jobdescript: this.state.jobdescript,
+                };
 
-            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
-            if (res.data.status === 200) {
-                swal('Message', res.data.message)
+                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                if (res.data.status === 200) {
+                    swal('Message', res.data.message)
+                }
+            }
+            else {
+                const data = {
+                    name: this.state.name,
+                    job: this.state.job,
+                    startdate: this.state.startdate,
+                    enddate: this.state.enddate,
+                    companyname: this.state.companyname,
+                    companylogo: this.state.companylogo,
+                    jobdescript: this.state.jobdescript,
+                };
+
+                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                if (res.data.status === 200) {
+                    swal('Message', res.data.message)
+                }
             }
         }
-        else {
-            const data = {
-                name: this.state.name,
-                job: this.state.job,
-                startdate: this.state.startdate,
-                enddate: this.state.enddate,
-                companyname: this.state.companyname,
-                companylogo: this.state.companylogo,
-                jobdescript: this.state.jobdescript,
-            };
-
-            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
-            if (res.data.status === 200) {
-                swal('Message', res.data.message)
-            }
+        catch (error) {
+            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
         }
 
     }
