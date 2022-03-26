@@ -23,9 +23,9 @@ class Profile extends Component {
 
 
     async componentDidMount() {
-        const res = await fetch('http://127.0.0.1:8000/api/profile-identity');
+        const res = await fetch('https://profile-page-laravel-app.herokuapp.com/api/profile-identity');
         const data = await res.json();
-        const resExp = await fetch('http://127.0.0.1:8000/api/profile-experience');
+        const resExp = await fetch('https://profile-page-laravel-app.herokuapp.com/api/profile-experience');
         const dataExp = await resExp.json();
 
         this.setState({

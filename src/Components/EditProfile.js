@@ -116,7 +116,7 @@ class EditProfile extends Component {
             };
 
 
-            const res = await axios.post('http://127.0.0.1:8000/api/add-profile-identity', data)
+            const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-identity', data)
             if (res.data.status === 200) {
                 swal({
                     title: "Message",
@@ -146,7 +146,7 @@ class EditProfile extends Component {
                     jobdescript: this.state.jobdescript,
                 };
 
-                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-experience', data)
                 if (res.data.status === 200) {
 
                     swal({
@@ -167,7 +167,7 @@ class EditProfile extends Component {
                     jobdescript: this.state.jobdescript,
                 };
 
-                const res = await axios.post('http://127.0.0.1:8000/api/add-profile-experience', data)
+                const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-experience', data)
                 if (res.data.status === 200) {
 
                     swal({
