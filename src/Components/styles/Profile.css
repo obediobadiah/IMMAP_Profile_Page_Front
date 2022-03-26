@@ -151,6 +151,7 @@
 
   .company_content{
     display: flex;
+    align-items: center;
   }
 
   .exp_content .company_content .companylogo_img{
