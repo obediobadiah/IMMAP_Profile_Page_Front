@@ -58,6 +58,7 @@ class AddProfile extends Component {
             age: e.target.value,
         });
     }
+
     handleInputJob = (e) => {
         this.setState({
             job: e.target.value,
@@ -98,7 +99,6 @@ class AddProfile extends Component {
     };
 
 
-
     uploadSingleFile(e) {
         this.setState({
             image: URL.createObjectURL(e.target.files[0]),
@@ -116,6 +116,7 @@ class AddProfile extends Component {
     SaveProfil = async (e) => {
         e.preventDefault();
         try {
+
             const data = {
                 name: this.state.name,
                 age: this.state.age,
@@ -124,10 +125,21 @@ class AddProfile extends Component {
 
             const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-identity', data)
             if (res.data.status === 200) {
-                swal('Message', res.data.message)
+                swal({
+                    title: "Success",
+                    text: res.data.message,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                });
             }
+
         } catch (error) {
-            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
+            swal({
+                title: "Error",
+                text: "Failed to save, Please make sure all fields are completed",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         }
 
     }
@@ -151,7 +163,12 @@ class AddProfile extends Component {
 
                 const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-experience', data)
                 if (res.data.status === 200) {
-                    swal('Message', res.data.message)
+                    swal({
+                        title: "Success",
+                        text: res.data.message,
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    });
                 }
             }
             else {
@@ -167,12 +184,22 @@ class AddProfile extends Component {
 
                 const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-experience', data)
                 if (res.data.status === 200) {
-                    swal('Message', res.data.message)
+                    swal({
+                        title: "Success",
+                        text: res.data.message,
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    });
                 }
             }
         }
         catch (error) {
-            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
+            swal({
+                title: "Error",
+                text: "Failed to save, Please make sure all fields are completed<br/>" + " Click on Add if you want to add experience",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         }
     }
 
@@ -191,7 +218,7 @@ class AddProfile extends Component {
 
         const content = !this.state.checked
             ? <div className='col-md-6 col-sm-12 exp_date' id='end_dates'>
-            <label>End date</label><br />
+                <label>End date</label><br />
                 <input type="date" class="profile_date_month form-control" name='enddate' value={this.state.enddate} onChange={this.handleInputEndDate} required />
             </div>
             : null;
