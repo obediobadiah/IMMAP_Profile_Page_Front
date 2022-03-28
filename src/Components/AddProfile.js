@@ -196,7 +196,7 @@ class AddProfile extends Component {
         catch (error) {
             swal({
                 title: "Error",
-                text: "Failed to save, Please make sure all fields are completed<br/>" + " Click on Add if you want to add experience",
+                text: "Failed to save, Please make sure all fields are completed",
                 icon: "error",
                 confirmButtonText: "OK",
             });
