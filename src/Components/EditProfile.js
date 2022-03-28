@@ -119,14 +119,20 @@ class EditProfile extends Component {
             const res = await axios.post('https://profile-page-laravel-app.herokuapp.com/api/add-profile-identity', data)
             if (res.data.status === 200) {
                 swal({
-                    title: "Message",
-                    text: "Profile edited successfully",
+                    title: "Success",
+                    text: "Identity edited successfully!!",
                     icon: "success",
+                    confirmButtonText: "OK",
                 });
             }
         }
         catch (error) {
-            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
+            swal({
+                title: "Error",
+                text: "Failed to edit, Please make sure all fields are completed",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         }
     }
 
@@ -150,10 +156,12 @@ class EditProfile extends Component {
                 if (res.data.status === 200) {
 
                     swal({
-                        title: "Message",
-                        text: "Experience edited successfully",
+                        title: "Success",
+                        text: "Experience edited successfully!!",
                         icon: "success",
+                        confirmButtonText: "OK",
                     });
+
                 }
             }
             else {
@@ -171,15 +179,22 @@ class EditProfile extends Component {
                 if (res.data.status === 200) {
 
                     swal({
-                        title: "Message",
-                        text: "Experience edited successfully",
+                        title: "Success",
+                        text: "Experience edited successfully!!",
                         icon: "success",
+                        confirmButtonText: "OK",
                     });
+
                 }
             }
         }
         catch (error) {
-            swal('Warning', "Failed to save, Please make sure all fields are completed", error);
+            swal({
+                title: "Error",
+                text: "Failed to edit, Please make sure all fields are completed",
+                icon: "error",
+                confirmButtonText: "OK",
+            });
         }
 
     }
