@@ -2,6 +2,7 @@ import react, { Component, useState } from 'react'
 import axios from 'axios'
 import * as React from 'react'
 import './styles/AddProfile.css'
+import Navigation from './Navigation'
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
@@ -130,6 +131,7 @@ class AddProfile extends Component {
                     text: res.data.message,
                     icon: "success",
                     confirmButtonText: "OK",
+                    confirmButtonColor: "#be2126",
                 });
             }
 
@@ -139,6 +141,7 @@ class AddProfile extends Component {
                 text: "Failed to save, Please make sure all fields are completed",
                 icon: "error",
                 confirmButtonText: "OK",
+                confirmButtonColor: "#be2126",
             });
         }
 
@@ -168,6 +171,7 @@ class AddProfile extends Component {
                         text: res.data.message,
                         icon: "success",
                         confirmButtonText: "OK",
+                         confirmButtonColor: "#be2126",
                     });
                 }
             }
@@ -189,6 +193,7 @@ class AddProfile extends Component {
                         text: res.data.message,
                         icon: "success",
                         confirmButtonText: "OK",
+                         confirmButtonColor: "#be2126",
                     });
                 }
             }
@@ -199,6 +204,7 @@ class AddProfile extends Component {
                 text: "Failed to save, Please make sure all fields are completed",
                 icon: "error",
                 confirmButtonText: "OK",
+                 confirmButtonColor: "#be2126",
             });
         }
     }

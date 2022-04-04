@@ -7,22 +7,23 @@ import {
 
 import Profile from './Components/Profile'
 import AddProfile from './Components/AddProfile'
-import Navigation from './Components/Navigation'
+import Welcome from './Components/Welcome'
 import EditProfile from './Components/EditProfile'
 
 function App() {
   return (
     <div className="App">
-
+ 
       <BrowserRouter>
-          <Navigation />
-
+          {/* <Navigation /> */}
         <Routes>
-            <Route path="/" element={<AddProfile />} exact />
-            <Route path="/Profile" element={<Profile />} />
-            <Route path="/EditProfile" element={<EditProfile />} />
+            <Route path="/" element={<Welcome />} exact />
+            <Route path="/AddProfile" element={<AddProfile />} exact />
+            {/* <Route path="/Profile" element={<Profile />} />
+            <Route path="/EditProfile" element={<EditProfile />} /> */}
         </Routes>
       </BrowserRouter>
+
     </div>
   )
 }
